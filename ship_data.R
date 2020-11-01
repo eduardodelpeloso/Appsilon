@@ -1,8 +1,14 @@
-ship_lat_lon <- function(shipName) {
+# Calculate the largest distance traveled between two consecutive
+# observations of a ship. Return lat/lon of the begin and end
+# of this leg, and the distance traveled
+ship_lat_lon <- function(ship_name) {
   
-  result = df[df$SHIPNAME == shipName, ]
+  # Get list of observations of ship_name
+  result <- ships[ships$SHIPNAME == ship_name(), ]
 
-  if (is.null(shipName) || shipName == "") {
+  # This avoids an error when the app is started because there is no data
+  # available yet
+  if (is.null(ship_name()) || ship_name() == "") {
     return(list(NULL, NULL))
   }
   
@@ -48,21 +54,25 @@ ship_lat_lon <- function(shipName) {
                     lat_max_dist_begin, lat_max_dist_end), c(2, 2))))
 }
 
+# Convert angle in degrees to radians
 deg2rad <- function(deg) {
   return(deg * pi / 180.0)
 }
 
+# Calculate the distace in meters between two points in the
+# Earth given their latitude and longitude
 dist_2_pt <- function(lat1, lon1, lat2, lon2) {
   
     R = 6371.0
     
-    latDistance = deg2rad(lat2 - lat1);
-    lonDistance = deg2rad(lon2 - lon1);
-    a = sin(latDistance / 2.0) * sin(latDistance / 2.0) +
+    lat_distance = deg2rad(lat2 - lat1);
+    lon_distance = deg2rad(lon2 - lon1);
+    a = sin(lat_distance / 2.0) * sin(lat_distance / 2.0) +
       cos(deg2rad(lat1)) * cos(deg2rad(lat2)) *
-      sin(lonDistance / 2.0) * sin(lonDistance / 2.0)
+      sin(lon_distance / 2.0) * sin(lon_distance / 2.0)
     c = 2.0 * atan2(sqrt(a), sqrt(1.0 - a))
     distance = R * c * 1000.0
     
     return(distance)
 }
+
