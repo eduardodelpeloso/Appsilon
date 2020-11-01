@@ -1,6 +1,5 @@
 library(shiny)
 
-
 ships <- read.csv('ships.csv')
 ship_types <- sort(unique(ships$ship_type))
 ships_split <- split(ships, ships$ship_type)

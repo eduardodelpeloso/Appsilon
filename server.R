@@ -3,8 +3,8 @@ source('ship_data.R', local = TRUE)
 shinyServer(function(input, output, session) {
   
   # Ship type and name
-  shipTypeStr <<- dropdownServer("ship_type")
-  shipNameStr <<- dropdownServer("ship_name")
+  shipTypeStr <- dropdownServer("ship_type")
+  shipNameStr <- dropdownServer("ship_name")
   
   # When ship type is chosen, update list of ship names
   observeEvent(
@@ -44,6 +44,6 @@ shinyServer(function(input, output, session) {
                          label = "End",
                          labelOptions = labelOptions(noHide = T))
       
-    })))
- 
+    }))
+  )
 })
