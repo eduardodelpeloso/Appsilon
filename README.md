@@ -1,7 +1,7 @@
 This was a recruitment test for a company specialized in the development of data analytics and machine learning solutions for enterprise companies.
 Most of their systems are programmed in R and use the Shiny package to create **dashboards**.
 
-The dashboard I developed can be accesses at https://eduardodelpeloso.shinyapps.io/Map_Dashboard.
+The dashboard I developed can be accessed at https://eduardodelpeloso.shinyapps.io/Map_Dashboard.
 
 ---
 
