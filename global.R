@@ -1,6 +1,6 @@
 library(shiny)
 
-ships <- read.csv('ships.csv')
+ships <- read.csv("ships.csv")
 ship_types <- sort(unique(ships$ship_type))
 ships_split <- split(ships, ships$ship_type)
 
@@ -15,7 +15,9 @@ dropdownServer <- function(id) {
   moduleServer(
     id,
     function(input, output, session) {
-      reactive({input$dropdown})
+      reactive({
+        input$dropdown
+      })
     }
   )
 }
